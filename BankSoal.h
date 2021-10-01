@@ -7,17 +7,18 @@
 
 #include <string>
 #include <functional>
+
 using namespace std;
 
 class BankSoal {
 public:
     BankSoal();
-    using Questions = function<void()>;
-    Questions questions[4];
-    void initializeQuestionFunctions();
+
+    static void initializeQuestionFunctions();
+
     void executeAnswer() const;
 
-protected:
+private:
     void setQuestionCode(int x) {
         questionId = x;
     }
@@ -27,6 +28,8 @@ protected:
     }
 
     int questionId{};
+
+    void enterQuestionID();
 };
 
 #endif //BANKSOAL_BANKSOAL_H
