@@ -5,6 +5,9 @@
 #ifndef BANKSOAL_S_1920_1_H
 #define BANKSOAL_S_1920_1_H
 
+#include <iostream>
+
+using namespace std;
 
 class S_1920_1 {
 public:

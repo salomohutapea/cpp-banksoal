@@ -14,8 +14,6 @@ class BankSoal {
 public:
     BankSoal();
 
-    static void initializeQuestionFunctions();
-
     void executeAnswer() const;
 
 private:
@@ -30,6 +28,8 @@ private:
     int questionId{};
 
     void enterQuestionID();
+
+    static void initializeQuestionFunctions();
 };
 
 #endif //BANKSOAL_BANKSOAL_H

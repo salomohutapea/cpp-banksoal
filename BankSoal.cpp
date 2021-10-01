@@ -4,30 +4,23 @@
 
 #include "BankSoal.h"
 #include "S_1920_1/S_1920_1.h"
+#include "S_1920_2/S_1920_2.h"
 #include <iostream>
 
 using namespace std;
-using Questions = function<void()>;
-
-// Set question array
-Questions questions[1];
 
 BankSoal::BankSoal() {
     initializeQuestionFunctions();
     enterQuestionID();
 }
 
-void BankSoal::executeAnswer() const {
-    if (getQuestionId() < sizeof(questions) / 32 && getQuestionId() >= 0) {
-        (questions[getQuestionId()])();
-    } else {
-        cout << "There is no question ID " << getQuestionId() << endl;
-    }
-}
+// Set question array and size
+function<void()> questionArray[2];
 
 // Add question classes to question array
 void BankSoal::initializeQuestionFunctions() {
-    questions[0] = []() { S_1920_1(); };
+    questionArray[0] = []() { S_1920_1(); };
+    questionArray[1] = []() { S_1920_2(); };
 }
 
 void BankSoal::enterQuestionID() {
@@ -36,4 +29,12 @@ void BankSoal::enterQuestionID() {
     cin >> a;
     cout << endl;
     setQuestionCode(a);
+}
+
+void BankSoal::executeAnswer() const {
+    if (getQuestionId() < sizeof(questionArray) / 32 && getQuestionId() >= 0) {
+        (questionArray[getQuestionId()])();
+    } else {
+        cout << "There is no question ID " << getQuestionId() << endl;
+    }
 }
