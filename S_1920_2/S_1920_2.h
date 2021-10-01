@@ -12,6 +12,9 @@ using namespace std;
 class S_1920_2 {
 public:
     S_1920_2();
+
+private:
+    static void executeAnswer();
 };
 
 
