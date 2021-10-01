@@ -19,10 +19,10 @@ BankSoal::BankSoal() {
 
 void BankSoal::executeAnswer() const {
 
-    if (getQuestionId() < sizeof(questions) || getQuestionId() > 1) {
-        (questions[getQuestionId() - 1])();
+    if (getQuestionId() < sizeof(questions) - 1 || getQuestionId() > 0) {
+        (questions[getQuestionId()])();
     } else {
-        cout << "There is no question ID " << getQuestionId();
+        cout << "There is no question ID " << getQuestionId() << endl;
     }
 }
 
